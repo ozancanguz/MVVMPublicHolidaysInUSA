@@ -9,4 +9,5 @@ interface HolidaysApi {
 
     @GET("/api/v2/publicholidays/2020/US")
     suspend fun getAllHolidays(): Response<List<Holiday>>
+
 }
