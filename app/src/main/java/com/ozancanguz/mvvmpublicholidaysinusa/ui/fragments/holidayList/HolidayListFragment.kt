@@ -7,26 +7,32 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.ozancanguz.mvvmpublicholidaysinusa.R
+import com.ozancanguz.mvvmpublicholidaysinusa.databinding.FragmentHolidayDetailBinding
+import com.ozancanguz.mvvmpublicholidaysinusa.databinding.FragmentHolidayListBinding
 import kotlinx.android.synthetic.main.fragment_holiday_list.*
 import kotlinx.android.synthetic.main.fragment_holiday_list.view.*
 
 
 class HolidayListFragment : Fragment() {
-
+    private var _binding: FragmentHolidayListBinding? = null
+    // This property is only valid between onCreateView and
+// onDestroyView.
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_holiday_list, container, false)
-
-      view.button.setOnClickListener {
-            findNavController().navigate(R.id.action_holidayListFragment_to_holidayDetailFragment)
-        }
+        _binding = FragmentHolidayListBinding.inflate(inflater, container, false)
+        val view = binding.root
 
 
-   return view
+        return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 
