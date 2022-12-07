@@ -4,6 +4,7 @@ import com.ozancanguz.mvvmpublicholidaysinusa.model.Holiday
 import retrofit2.Response
 import retrofit2.http.GET
 
+
 interface HolidaysApi {
 
 
