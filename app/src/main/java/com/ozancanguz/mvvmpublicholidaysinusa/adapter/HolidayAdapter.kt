@@ -3,9 +3,11 @@ package com.ozancanguz.mvvmpublicholidaysinusa.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ozancanguz.mvvmpublicholidaysinusa.R
 import com.ozancanguz.mvvmpublicholidaysinusa.model.Holiday
+import com.ozancanguz.mvvmpublicholidaysinusa.ui.fragments.holidayList.HolidayListFragmentDirections
 import kotlinx.android.synthetic.main.holiday_row_layout.view.*
 
 class HolidayAdapter:RecyclerView.Adapter<HolidayAdapter.MyViewHolder>() {
@@ -33,6 +35,11 @@ class HolidayAdapter:RecyclerView.Adapter<HolidayAdapter.MyViewHolder>() {
         holder.itemView.holiday_date.text=currentHoliday.date
         holder.itemView.holiday_name.text=currentHoliday.name
         holder.itemView.movies_img.setImageResource(R.drawable.holidayicon)
+
+        holder.itemView.setOnClickListener {
+           val directions=HolidayListFragmentDirections.actionHolidayListFragmentToHolidayDetailFragment(currentHoliday)
+            holder.itemView.findNavController().navigate(directions)
+        }
 
     }
 

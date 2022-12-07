@@ -18,5 +18,9 @@
         android:id="@+id/holidayDetailFragment"
         android:name="com.ozancanguz.mvvmpublicholidaysinusa.ui.fragments.holidaydetail.HolidayDetailFragment"
         android:label="Holiday Details"
-        tools:layout="@layout/fragment_holiday_detail" />
+        tools:layout="@layout/fragment_holiday_detail" >
+        <argument
+            android:name="currentHoliday"
+            app:argType="com.ozancanguz.mvvmpublicholidaysinusa.model.Holiday" />
+    </fragment>
 </navigation>
