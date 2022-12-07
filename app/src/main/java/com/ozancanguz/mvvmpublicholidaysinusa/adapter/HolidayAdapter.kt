@@ -32,6 +32,7 @@ class HolidayAdapter:RecyclerView.Adapter<HolidayAdapter.MyViewHolder>() {
         var currentHoliday=holidayList[position]
         holder.itemView.holiday_date.text=currentHoliday.date
         holder.itemView.holiday_name.text=currentHoliday.name
+        holder.itemView.movies_img.setImageResource(R.drawable.holidayicon)
 
     }
 

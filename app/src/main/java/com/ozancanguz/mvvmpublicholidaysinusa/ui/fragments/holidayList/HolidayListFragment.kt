@@ -10,7 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ozancanguz.mvvmpublicholidaysinusa.R
+import com.ozancanguz.mvvmpublicholidaysinusa.adapter.HolidayAdapter
 import com.ozancanguz.mvvmpublicholidaysinusa.databinding.FragmentHolidayDetailBinding
 import com.ozancanguz.mvvmpublicholidaysinusa.databinding.FragmentHolidayListBinding
 import com.ozancanguz.mvvmpublicholidaysinusa.viewmodels.HolidayViewModel
@@ -29,6 +31,8 @@ class HolidayListFragment : Fragment() {
 
     private lateinit var listviewModel:HolidayViewModel
 
+    private var holidayAdapter=HolidayAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,6 +43,9 @@ class HolidayListFragment : Fragment() {
           listviewModel=ViewModelProvider(this).get(HolidayViewModel::class.java)
           observeLiveData()
 
+        binding.recyclerView.layoutManager=LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter=holidayAdapter
+
 
         return view
     }
@@ -47,7 +54,7 @@ class HolidayListFragment : Fragment() {
 
         listviewModel.requestHoliday()
         listviewModel.holidayList.observe(viewLifecycleOwner, Observer {
-            Log.d("holidays",""+it)
+           holidayAdapter.UpdateData(it)
         })
     }
 
