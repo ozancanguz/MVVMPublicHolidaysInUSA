@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/holidayListFragment">
+
+    <fragment
+        android:id="@+id/holidayListFragment"
+        android:name="com.ozancanguz.mvvmpublicholidaysinusa.ui.fragments.holidayList.HolidayListFragment"
+        android:label="Holiday List"
+        tools:layout="@layout/fragment_holiday_list" >
+        <action
+            android:id="@+id/action_holidayListFragment_to_holidayDetailFragment"
+            app:destination="@id/holidayDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/holidayDetailFragment"
+        android:name="com.ozancanguz.mvvmpublicholidaysinusa.ui.fragments.holidaydetail.HolidayDetailFragment"
+        android:label="Holiday Details"
+        tools:layout="@layout/fragment_holiday_detail" />
+</navigation>
